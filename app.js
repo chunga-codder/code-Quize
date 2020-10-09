@@ -1,200 +1,181 @@
-(function(){
-    // Functions
-    function buildQuiz(){
-      // variable to store the HTML output
-      const output = [];
-  
-      // for each question...
-      myQuestions.forEach(
-        (currentQuestion, questionNumber) => {
-  
-          // variable to store the list of possible answers
-          const answers = [];
-  
-          // and for each available answer...
-          for(letter in currentQuestion.answers){
-  
-            // ...add an HTML radio button
-            answers.push(
-              `<label>
-                <input type="radio" name="question${questionNumber}" value="${letter}">
-                ${letter} :
-                ${currentQuestion.answers[letter]}
-              </label>`
-            );
-          }
-  
-          // add this question and its answers to the output
-          output.push(
-            `<div class="slide">
-              <div class="question"> ${currentQuestion.question} </div>
-              <div class="answers"> ${answers.join("")} </div>
-            </div>`
-          );
-        }
-      );
-  
-      // finally combine our output list into one string of HTML and put it on the page
-      quizContainer.innerHTML = output.join('');
-    }
-  
-    function showResults(){
-  
-      // gather answer containers from our quiz
-      const answerContainers = quizContainer.querySelectorAll('.answers');
-  
-      // keep track of user's answers
-      let numCorrect = 0;
-  
-      // for each question...
-      myQuestions.forEach( (currentQuestion, questionNumber) => {
-  
-        // find selected answer
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-  
-        // if answer is correct
-        if(userAnswer === currentQuestion.correctAnswer){
-          // add to the number of correct answers
-          numCorrect++;
-  
-          // color the answers green
-          answerContainers[questionNumber].style.color = 'lightgreen';
-        }
-        // if answer is wrong or blank
-        else{
-          // color the answers red
-          answerContainers[questionNumber].style.color = 'red';
-        }
-      });
-  
-      // show number of correct answers out of total
-      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-    }
-  
-    function showSlide(n) {
-      slides[currentSlide].classList.remove('active-slide');
-      slides[n].classList.add('active-slide');
-      currentSlide = n;
-      if(currentSlide === 0){
-        previousButton.style.display = 'none';
-      }
-      else{
-        previousButton.style.display = 'inline-block';
-      }
-      if(currentSlide === slides.length-1){
-        nextButton.style.display = 'none';
-        submitButton.style.display = 'inline-block';
-      }
-      else{
-        nextButton.style.display = 'inline-block';
-        submitButton.style.display = 'none';
-      }
-    }
-  
-    function showNextSlide() {
-      showSlide(currentSlide + 1);
-    }
-  
-    function showPreviousSlide() {
-      showSlide(currentSlide - 1);
-    }
-  
-    // Variables
-    const quizContainer = document.getElementById('quiz');
-    const resultsContainer = document.getElementById('results');
-    const submitButton = document.getElementById('submit');
-    const myQuestions = [
-      {
-        question: "Who is the person who founded javascript?",
-        answers: {
-          a: "Douglas Crockford",
-          b: "Sheryl Sandberg",
-          c: "Brendan Eich"
-        },
-        correctAnswer: "c"
-      },
-      {
-        question: "Which one of these is an upgrate to javascript?",
-        answers: {
-          a: "Node.js",
-          b: "TypeScript",
-          c: "jquery"
-        },
-        correctAnswer: "c"
-      },
-      {
-        question: "which programing language is used in styling a website?",
-        answers: {
-          a: "Angular",
-          b: "jQuery",
-          c: "RequireJS",
-          d: "css"
-        },
-        correctAnswer: "d"
-      },
-      {
-      question: "can an upject be pass in to our local storage?",
-        answers: {
-          a: "no",
-          b: "ye",
-          c: "not sure",
-          d: "non of the above"
-        },
-        correctAnswer: "b"
-    },
-    {question: "what is the name of our storage area in our bootcamp?",
-    answers: {
-      a: "github",
-      b: "visual studio",
-      c: "bash",
-      d: "gitlab"
-    },
-    correctAnswer: "d"}
-    ];
-  
-    buildQuiz();
-  
-    const previousButton = document.getElementById("previous");
-    const nextButton = document.getElementById("next");
-    const slides = document.querySelectorAll(".slide");
-    let currentSlide = 0;
-  
-    // Show the first slide
-    showSlide(currentSlide);
-  
-    // Event listeners
-    submitButton.addEventListener('click', showResults);
-    previousButton.addEventListener("click", showPreviousSlide);
-    nextButton.addEventListener("click", showNextSlide);
-  })();
-  
-  var sec = 120;
-  (function() {
-    
-    function startTimer(){
-        var timer = setInterval(function(){
-            sec--;
-            document.getElementById('timerDisplay').innerHTML='00:'+sec;
-            if (sec <=0) {
-                alert(" TIME IS UP")
-                window.alert = function() {
-                  document.getElementById("timerDisplay").innerHTML= "0"
-                }
-            }
-          }, 1000);
-    }
-    document.getElementById('incorrect').addEventListener('click', function() {
-        sec -= 5;
-        document.getElementById('timerDisplay').innerHTML='00:'+sec;
-        for(let i =0; i < answers.length;i++){
-          if(myQuestions[i][j]===answers[i][j]){
-          sec=+0;
-          }else 
-          sec=-5
-          }
-    });
-    startTimer();
-})();
+var quizQuestions = document.getElementById("quiz-questions");
+var timer = document.getElementById("timer");
+var btnStart = document.getElementById("btn-start");
+var timecounter = document.getElementById("timecounter");
+var titleitem = document.getElementById("title-item");
+var nextQuestions;
+var questionanswers = document.getElementById("question-answers");
+var myScore = document.getElementById("score");
+var btnScore = document.getElementById("btnScore");
+var currentindex = 0;
+var score = 0;
+var count = 100;
+var alert = document.getElementById("alert");
+var info = document.getElementById("info");
+var addscore = document.getElementById("addscore");
+var submitresult = document.getElementById("submitresult");
+var allScores = [];
+//using the JSON.parse to get my results stored as string in my local storage
+var storedScores = JSON.parse(localStorage.getItem("userData"));
+// my questions all stored as an object with answers in arays
+var questions = [
+  {
+    title: "what is the full meaning of CSS?",
+    choices: [
+      "cascading style sheet",
+      "cascading style system",
+      "cast style sheet",
+      "non",
+    ],
+    answer: "cascading style sheet",
+  },
+  {
+    title: "an if/else statement is enclosed within?",
+    choices: ["quotes", "Curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses",
+  },
+  {
+    title: "what can objects take in ?",
+    choices: ["numbers and strings", "non ", "booleances", "all of the above"],
+    answer: "all of the above",
+  },
+  {
+    title:
+      "what is the function which is used to be able to store an array in our local storage? ",
+    choices: ["JSON.stringify", "JASON.parse", "event.default", "non"],
+    answer: "JSON.stringify",
+  },
+  {
+    title:
+      "what is the function which is used to retrive stored data in our local storage?",
+    choices: ["JSON.stringify", "JASON.parse", "event.default", "non"],
+    answer: "JASON.parse",
+  },
+  {
+    title: "what programming language is set as the skeletton of our web apps?",
+    choices: ["html", "java", "javascript", "css", "non"],
+    answer: "html",
+  },
+];
+btnStart.addEventListener("click", starQuiz);
+function starQuiz() {
+  if (storedScores !== null) {
+    allScores = storedScores;
+  }
+  info.classList.add("d-none");
+  btnStart.classList.add("d-none");
+  timecounter.classList.remove("d-none");
+  quizQuestions.classList.remove("d-none");
+  nextQuestions = questions[currentindex];
+  console.log(nextQuestions.title);
 
+  displayQuestion(nextQuestions);
+
+  gametime();
+}
+btnScore.addEventListener("click", function () {
+  let name = document.getElementById("inputScore").value;
+  scorePage(name, count);
+});
+// setting my time 
+
+function gametime() {
+  var timeinterval = setInterval(function () {
+    timer.innerText = count;
+    count--;
+  }, 1000);
+}
+
+function scorePage(a, b) {
+  var userData = {
+    inits: a,
+    userScore: b,
+  };
+  allScores.push(userData);
+
+  localStorage.setItem("userData", JSON.stringify(allScores));
+  location.href = "userscore.js";
+}
+
+function displayQuestion(question) {
+  titleitem.innerText = question.title;
+  question.choices.forEach((element) => {
+    var button = document.createElement("button");
+    button.className = "btn-primary btn-block text-left";
+    button.innerText = element;
+    // questionanswers.innerHTML=""
+    questionanswers.appendChild(button);
+    button.addEventListener("click", displaynextQuestion);
+  });
+}
+
+function displaynextQuestion(e) {
+  currentindex++;
+  if (currentindex < questions.length) {
+    correction(e.target.innerText == nextQuestions.answer);
+    questionanswers.innerHTML = "";
+    if (currentindex < questions.length) {
+      nextQuestions = questions[currentindex];
+      displayQuestion(nextQuestions);
+    } else {
+      currentindex = 0;
+      displayQuestion(nextQuestions);
+    }
+  } else {
+    console.log("endgame");
+    endgame();
+  }
+}
+function correction(response) {
+  if (response) {
+    alert.innerText = "Good";
+    console.log("Good");
+  } else {
+    alert.innerText = "Wrong";
+    count = count - 15;
+    timer.innerHTML = count;
+    console.log("Wrong");
+  }
+  setTimeout(function () {
+    alert.innerText = "";
+  }, 1000);
+}
+function endgame() {
+  // btnStart.classList.add("d-none")
+  myScore.innaText = count;
+  addscore.classList.remove("d-none");
+  timecounter.classList.add("d-none");
+  quizQuestions.classList.add("d-none");
+  addscore.classList.remove("d-none");
+}
+
+var storedScores = JSON.parse(localStorage.getItem("userData"));
+var highScoresArea = document.querySelector("#highScoresList");
+var backBtn = document.querySelector("#backButton");
+var clearBtn = document.querySelector("#clearScores");
+
+function displayScores() {
+  if (storedScores !== null) {
+    var scoreList = document.createElement("ol");
+    scoreList.className = "scoreListClass";
+    for (var i = 0; i < storedScores.length; i++) {
+      var initials = storedScores[i].inits;
+      var scores = storedScores[i].userScore;
+      var scoreEntry = document.createElement("li");
+      scoreEntry.innerHTML = initials + " - " + scores;
+      scoreList.appendChild(scoreEntry);
+    }
+    highScoresArea.appendChild(scoreList);
+  }
+}
+
+displayScores();
+
+backBtn.addEventListener("click", function () {
+  location.href = "index.html";
+});
+
+clearBtn.addEventListener("click", function () {
+  highScoresArea.innerHTML = "";
+  window.localStorage.clear();
+});

@@ -1,132 +1,30 @@
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
-:root {
+body,html{
+  font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
-  margin: 50px;
-  padding: 20px;
+  background-image: url(Images/weather.png);
+  height: 100%;
 }
-body {
-  font-size: 20px;
-  font-family: "Work Sans", sans-serif;
-  color: #333;
-  font-weight: 300;
-  text-align: center;
-  background-color: #49463f;
-  margin: 20px;
+.game-box{
+  background: #eeeeee;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0.,0,0,0.23);
 }
-#incorrect {
-  background-color:white;
-  text-align: center;
-  width: fit-content;
-  color: #49463f;
-}
-#timerDisplay {
-  background-color: white;
-  color: red;
-  font-size: 50px;
-}
-h1 {
-  font-weight: 300;
-  text-align: center;
-  margin: 0px;
-  padding: 10px;
-  font-size: 20px;
-  background-color: rgb(104, 75, 104);
-  color: #fff;
-}
-.question {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-.answers {
-  margin-bottom: 20px;
-  text-align: center;
+.answer-item{
+  background: rgb(223, 201, 7);
+  width: 90%;
   display: inline-block;
+  border-radius:8px;
+  padding: 3px;
 }
-.answers label {
-  display: block;
-  margin-bottom: 10px;
-  align-items: center;
-}
-.butten-div {
-  align-content: center;
-  text-align: center;
-  position: relative;
-}
-button {
-  font-family: "Work Sans", sans-serif;
-  font-size: 22px;
-  background-color: rgb(51, 185, 145);
-  color: #fff;
-  border: 10px;
-  border-radius: 3px;
-  padding: 20px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  text-align: center;
-}
-#hold {
-  font-family: "Work Sans", sans-serif;
-  font-size: 22px;
-  color: #fff;
-  border: 10;
-  border-radius: 3px;
-  padding: 20px;
-  margin-right: 50px;
-  text-align: center;
-  width: 100;
-  align-self: center;
-  box-sizing: border-box;
-}
-#results {
-  background-color: pink;
-  color: white;
-  margin: 10px;
-  width: 100%;
-  font-size: large;
-  font-weight: bold;
-  display: block;
-  padding: 20px;
-  text-align: center;
-}
-button:hover {
-  background-color: rgb(120, 55, 133);
-  transition: 0.2s;
-}
-#result {
-  align-content: center;
-  text-align: center;
-  font-weight: bolder;
-  color: seagreen;
-  font-size: medium;
+#btn-start{
+  border:none;
+padding:6px 0 6px 0;
+border-radius:8px;
+background:#1645c7;
+  font:bold 40px;
+color:#fff;
 }
 
-.slide {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-.active-slide {
-  opacity: 1;
-  z-index: 2;
-}
-.quiz-container {
-  position: relative;
-  height: 200px;
-  margin-top: 40px;
+#code-title{
   text-align: center;
-  margin: auto;
-  padding: 20px;
-}
-#fotter {
-  font-weight: 300;
-  text-align: center;
-  margin: 0px;
-  padding: 10px;
-  font-size: 20px;
-  background-color: rgb(104, 75, 104);
-  color: #fff;
+  font-weight: bold;
 }
