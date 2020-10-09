@@ -171,24 +171,25 @@
   })();
   
  
-function startTime(){
-    var sec= 60;
-    timer=""
-    var timer = setInterval(function() {
-        
-        document.getElementById("timer-display").innerHTML = sec--;
-        
-        if(sec < 0){
-            clearInterval(timer-display);
-            alert("your Time is up");}
-    
-    },1000);
+  (function() {
+    var sec = 120;
+    function startTimer(){
+        var timer = setInterval(function(){
+            sec--;
+            document.getElementById('timerDisplay').innerHTML='00:'+sec;
+            if (sec <=60) {
+                prompt("answer yes to comfirm that 60 seconds left")
 
+            } else if
+              (sec <=0){
+                  clearInterval(timer);
+                  alert("Time is up!")
+              }
+          }, 1000);
     }
-    document.getElementById("incorect").addEventListener("click", function(){
-        if(numCorrect =+ 1){
-            sec = sec;
-        } else {
-            sec -=5;
-        }
+    document.getElementById('incorrect').addEventListener('click', function() {
+        sec -= 5;
+        document.getElementById('timerDisplay').innerHTML='00:'+sec;
     });
+    startTimer();
+})();
