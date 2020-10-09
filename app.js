@@ -170,26 +170,31 @@
     nextButton.addEventListener("click", showNextSlide);
   })();
   
- 
+  var sec = 120;
   (function() {
-    var sec = 120;
+    
     function startTimer(){
         var timer = setInterval(function(){
             sec--;
             document.getElementById('timerDisplay').innerHTML='00:'+sec;
-            if (sec <=60) {
-                prompt("answer yes to comfirm that 60 seconds left")
-
-            } else if
-              (sec <=0){
-                  clearInterval(timer);
-                  alert("Time is up!")
-              }
+            if (sec <=0) {
+                alert(" TIME IS UP")
+                window.alert = function() {
+                  document.getElementById("timerDisplay").innerHTML= "0"
+                }
+            }
           }, 1000);
     }
     document.getElementById('incorrect').addEventListener('click', function() {
         sec -= 5;
         document.getElementById('timerDisplay').innerHTML='00:'+sec;
+        for(let i =0; i < answers.length;i++){
+          if(myQuestions[i][j]===answers[i][j]){
+          sec=+0;
+          }else 
+          sec=-5
+          }
     });
     startTimer();
 })();
+

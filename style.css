@@ -10,11 +10,17 @@ body {
   color: #333;
   font-weight: 300;
   text-align: center;
-  background-color: #f8f6f0;
+  background-color: #49463f;
   margin: 20px;
 }
+#incorrect {
+  background-color:white;
+  text-align: center;
+  width: fit-content;
+  color: #49463f;
+}
 #timerDisplay {
-  background-color: royalblue;
+  background-color: white;
   color: red;
   font-size: 50px;
 }
@@ -41,11 +47,11 @@ h1 {
   margin-bottom: 10px;
   align-items: center;
 }
-  .butten-div {
-    align-content: center;
-    text-align: center;
-    position: relative;
-  }
+.butten-div {
+  align-content: center;
+  text-align: center;
+  position: relative;
+}
 button {
   font-family: "Work Sans", sans-serif;
   font-size: 22px;
@@ -58,7 +64,7 @@ button {
   margin-bottom: 20px;
   text-align: center;
 }
-  #hold {
+#hold {
   font-family: "Work Sans", sans-serif;
   font-size: 22px;
   color: #fff;
@@ -70,30 +76,28 @@ button {
   width: 100;
   align-self: center;
   box-sizing: border-box;
-  
-  }
+}
 #results {
-    background-color: pink;
-    color: white;
-    margin: 10px;
-    width: 100%;
-    font-size: large;
-    font-weight: bold;
-    display: block;
-    padding: 20px;
-    text-align: center;
-    
+  background-color: pink;
+  color: white;
+  margin: 10px;
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+  display: block;
+  padding: 20px;
+  text-align: center;
 }
 button:hover {
   background-color: rgb(120, 55, 133);
   transition: 0.2s;
 }
 #result {
-    align-content: center;
-    text-align: center;
-    font-weight: bolder;
-    color: seagreen;
-    font-size: medium;
+  align-content: center;
+  text-align: center;
+  font-weight: bolder;
+  color: seagreen;
+  font-size: medium;
 }
 
 .slide {
@@ -117,13 +121,12 @@ button:hover {
   margin: auto;
   padding: 20px;
 }
-#fotter  {
-    font-weight: 300;
-    text-align: center;
-    margin: 0px;
-    padding: 10px;
-    font-size: 20px;
-    background-color: rgb(104, 75, 104);
-    color: #fff;
-
+#fotter {
+  font-weight: 300;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: rgb(104, 75, 104);
+  color: #fff;
 }
