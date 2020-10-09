@@ -1,11 +1,11 @@
 body,html{
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
-  background-image: url(Images/weather.png);
+  background-color: lightgoldenrodyellow;
   height: 100%;
 }
 .game-box{
-  background: #eeeeee;
+  background: #cabec7;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0.,0,0,0.23);
 }
 .answer-item{
@@ -23,8 +23,13 @@ background:#1645c7;
   font:bold 40px;
 color:#fff;
 }
+#btn-start:hover{
+  color: rgb(255, 0, 0);
+transition: 1s;
+}
 
 #code-title{
   text-align: center;
   font-weight: bold;
+  color: dimgrey;
 }

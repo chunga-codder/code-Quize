@@ -62,7 +62,6 @@ function starQuiz() {
   if (storedScores !== null) {
     allScores = storedScores;
   }
-  info.classList.add("d-none");
   btnStart.classList.add("d-none");
   timecounter.classList.remove("d-none");
   quizQuestions.classList.remove("d-none");
@@ -94,8 +93,43 @@ function scorePage(a, b) {
   allScores.push(userData);
 
   localStorage.setItem("userData", JSON.stringify(allScores));
-  location.href = "userscore.js";
-}
+  location.href = "storedscore.js";
+
+// this is my javascript code to run at the back to store highscore
+
+//   var storedScores = JSON.parse(localStorage.getItem("userData"));
+// var highScoresArea = document.querySelector("#highScoresList");
+// var backBtn = document.querySelector("#backButton");
+// var clearBtn = document.querySelector("#clearScores");
+
+
+// function displayScores() {
+//     if (storedScores !== null) {
+//         var scoreList = document.createElement("ol");
+//         scoreList.className = "scoreListClass";
+//         for (var i = 0; i < storedScores.length; i++) {
+//             var initials = storedScores[i].inits;
+//             var scores = storedScores[i].userScore
+//             var scoreEntry = document.createElement("li");
+//             scoreEntry.innerHTML = initials + " - " + scores;
+//             scoreList.appendChild(scoreEntry);
+//         }
+//         highScoresArea.appendChild(scoreList);
+//     }
+// };
+
+// displayScores();
+
+// backBtn.addEventListener("click", function () {
+//     location.href = "index.html";
+// });
+
+// clearBtn.addEventListener("click", function () {
+//     highScoresArea.innerHTML = "";
+//     window.localStorage.clear();
+
+// });
+ }
 
 function displayQuestion(question) {
   titleitem.innerText = question.title;
@@ -103,7 +137,7 @@ function displayQuestion(question) {
     var button = document.createElement("button");
     button.className = "btn-primary btn-block text-left";
     button.innerText = element;
-    // questionanswers.innerHTML=""
+  
     questionanswers.appendChild(button);
     button.addEventListener("click", displaynextQuestion);
   });
@@ -141,41 +175,10 @@ function correction(response) {
   }, 1000);
 }
 function endgame() {
-  // btnStart.classList.add("d-none")
+ btnStart.classList.add("d-none")
   myScore.innaText = count;
   addscore.classList.remove("d-none");
   timecounter.classList.add("d-none");
   quizQuestions.classList.add("d-none");
   addscore.classList.remove("d-none");
 }
-
-var storedScores = JSON.parse(localStorage.getItem("userData"));
-var highScoresArea = document.querySelector("#highScoresList");
-var backBtn = document.querySelector("#backButton");
-var clearBtn = document.querySelector("#clearScores");
-
-function displayScores() {
-  if (storedScores !== null) {
-    var scoreList = document.createElement("ol");
-    scoreList.className = "scoreListClass";
-    for (var i = 0; i < storedScores.length; i++) {
-      var initials = storedScores[i].inits;
-      var scores = storedScores[i].userScore;
-      var scoreEntry = document.createElement("li");
-      scoreEntry.innerHTML = initials + " - " + scores;
-      scoreList.appendChild(scoreEntry);
-    }
-    highScoresArea.appendChild(scoreList);
-  }
-}
-
-displayScores();
-
-backBtn.addEventListener("click", function () {
-  location.href = "index.html";
-});
-
-clearBtn.addEventListener("click", function () {
-  highScoresArea.innerHTML = "";
-  window.localStorage.clear();
-});
