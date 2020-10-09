@@ -6,7 +6,7 @@ developing a code quiz for multiple choice questions
 this assignment is to design multiple choice questions 
 using a timer-based coding assessment using vanilla javascript .
 
-The application has a few multiple choice questions and the ability to store top scores on the user's device. once the user clicks "Start", the quize starts of emmidiately. they are penalized 10 seconds if they answer a question incorrectly. The final score is based on the amount remaining on the timer.
+The application has a few multiple choice questions and the ability to store top scores on the user's device. once the user clicks "Start", the quize starts of emmidiately. they are penalized 5 seconds if they answer a question incorrectly. The final score is based on the amount remaining on the timer.
 
 At the end of the quiz (when the user answers all questions or time is up), upon viewing their score, the user is able to enter their initials to add their score to the High Scores list. Once they enter their initials, the scoreboard will appear with an option to clear the board or restart the quiz.
 this score board is runed behind the front end for our case, i will not program it here,but i will write the code necessary to run the back code too.

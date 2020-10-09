@@ -1,34 +1,46 @@
-body,html{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+body,
+html {
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-align: center;
   background-color: lightgoldenrodyellow;
   height: 100%;
 }
-.game-box{
+.game-box {
   background: #cabec7;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0.,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 20px;
+  border-radius: 10px;
 }
-.answer-item{
+.answer-item {
   background: rgb(223, 201, 7);
   width: 90%;
   display: inline-block;
-  border-radius:8px;
+  border-radius: 8px;
   padding: 3px;
 }
-#btn-start{
-  border:none;
-padding:6px 0 6px 0;
-border-radius:8px;
-background:#1645c7;
-  font:bold 40px;
-color:#fff;
+#quiz-questions{
+  color: rgb(207, 192, 207);
 }
-#btn-start:hover{
+#quiz-questions{
+  color: darkgoldenrod;
+}
+#btn-start {
+  border: none;
+  padding: 6px 0 6px 0;
+  border-radius: 8px;
+  background: #1645c7;
+  font: bold 40px;
+  color: #fff;
+}
+.timer{
+  color: red;
+}
+#btn-start:hover {
   color: rgb(255, 0, 0);
-transition: 1s;
+  transition: 1s;
 }
 
-#code-title{
+#code-title {
   text-align: center;
   font-weight: bold;
   color: dimgrey;

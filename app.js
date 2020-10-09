@@ -1,6 +1,10 @@
 var quizQuestions = document.getElementById("quiz-questions");
 var timer = document.getElementById("timer");
 var btnStart = document.getElementById("btn-start");
+var alert = document.getElementById("alert");
+var info = document.getElementById("info");
+var addscore = document.getElementById("addscore");
+var submitresult = document.getElementById("submitresult");
 var timecounter = document.getElementById("timecounter");
 var titleitem = document.getElementById("title-item");
 var nextQuestions;
@@ -10,14 +14,13 @@ var btnScore = document.getElementById("btnScore");
 var currentindex = 0;
 var score = 0;
 var count = 100;
-var alert = document.getElementById("alert");
-var info = document.getElementById("info");
-var addscore = document.getElementById("addscore");
-var submitresult = document.getElementById("submitresult");
 var allScores = [];
+
 //using the JSON.parse to get my results stored as string in my local storage
 var storedScores = JSON.parse(localStorage.getItem("userData"));
+
 // my questions all stored as an object with answers in arays
+
 var questions = [
   {
     title: "what is the full meaning of CSS?",
@@ -162,14 +165,13 @@ function displaynextQuestion(e) {
 }
 function correction(response) {
   if (response) {
-    alert.innerText = "Good";
-    console.log("Good");
+    alert.innerText = "correct";
   } else {
     alert.innerText = "Wrong";
-    count = count - 15;
+    count = count - 5;
     timer.innerHTML = count;
-    console.log("Wrong");
   }
+  // for my repeated interval 1sec
   setTimeout(function () {
     alert.innerText = "";
   }, 1000);
