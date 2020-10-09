@@ -172,11 +172,11 @@
   
  
 function startTime(){
-    var sec = 60;
-    timer;
+    var sec= 60;
+    timer=""
     var timer = setInterval(function() {
-        sec--;
-        document.getElementById("timer-display").innerHTML = "59" -sec;
+        
+        document.getElementById("timer-display").innerHTML = sec--;
         
         if(sec < 0){
             clearInterval(timer-display);

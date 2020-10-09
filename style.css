@@ -11,6 +11,7 @@ body {
   font-weight: 300;
   text-align: center;
   background-color: #f8f6f0;
+  margin: 20px;
 }
 #timerDisplay {
   background-color: royalblue;
@@ -57,6 +58,32 @@ button {
   margin-bottom: 20px;
   text-align: center;
 }
+  #hold {
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+  color: #fff;
+  border: 10;
+  border-radius: 3px;
+  padding: 20px;
+  margin-right: 50px;
+  text-align: center;
+  width: 100;
+  align-self: center;
+  box-sizing: border-box;
+  
+  }
+#results {
+    background-color: pink;
+    color: white;
+    margin: 10px;
+    width: 100%;
+    font-size: large;
+    font-weight: bold;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    
+}
 button:hover {
   background-color: rgb(120, 55, 133);
   transition: 0.2s;
@@ -89,4 +116,14 @@ button:hover {
   text-align: center;
   margin: auto;
   padding: 20px;
+}
+#fotter  {
+    font-weight: 300;
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(104, 75, 104);
+    color: #fff;
+
 }
