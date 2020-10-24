@@ -13,3 +13,8 @@ this score board is runed behind the front end for our case, i will not program 
 
 
 ![IMG_20201023_134900_4](https://user-images.githubusercontent.com/71171928/97082557-798d9680-1602-11eb-888a-af161da299b0.jpg)
+ 
+<h3>contacts<\h3>
+
+To contact me for any suggestions, you can get to me via my github account 
+You can get the access my project using 
