@@ -18,3 +18,5 @@ this score board is runed behind the front end for our case, i will not program 
 
 To contact me for any suggestions, you can get to me via my github account 
 You can get the access my project using 
+https://chunga-codder.github.io/code-Quize/
+.thank you
