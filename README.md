@@ -10,3 +10,6 @@ The application has a few multiple choice questions and the ability to store top
 
 At the end of the quiz (when the user answers all questions or time is up), upon viewing their score, the user is able to enter their initials to add their score to the High Scores list. Once they enter their initials, the scoreboard will appear with an option to clear the board or restart the quiz.
 this score board is runed behind the front end for our case, i will not program it here,but i will write the code necessary to run the back code too.
+
+
+![IMG_20201023_134900_4](https://user-images.githubusercontent.com/71171928/97082557-798d9680-1602-11eb-888a-af161da299b0.jpg)
